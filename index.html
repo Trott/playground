@@ -1,0 +1,25 @@
+<title>WebAudio</title>
+<script>
+var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+var oscillator;
+var gainNode = audioCtx.createGain();
+var playing = false;
+document.onclick = toggleSound;
+function toggleSound(e) {
+  if (playing) {
+    oscillator.stop();
+    playing = false;
+    return;
+  }
+  oscillator = oscillatorFactory();
+  oscillator.start();
+  playing = true;
+}
+function oscillatorFactory() {
+  var oscillator = audioCtx.createOscillator();
+  oscillator.connect(audioCtx.destination);
+  oscillator.type = 'sine';
+  oscillator.frequency.value = 220;
+  return oscillator;
+}
+</script>
