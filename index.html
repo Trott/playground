@@ -20,7 +20,7 @@ function oscillatorFactory() {
   var oscillator = audioCtx.createOscillator();
   oscillator.connect(audioCtx.destination);
   oscillator.type = 'sine';
-  oscillator.frequency.value = 220;
+  oscillator.frequency.value = 220 + (Math.random() * 660); // A220 - A880 
   return oscillator;
 }
 </script>
