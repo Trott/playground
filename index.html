@@ -5,6 +5,7 @@ var oscillator;
 var gainNode = audioCtx.createGain();
 var playing = false;
 document.onclick = toggleSound;
+document.ontouchend = toggleSound;
 function toggleSound(e) {
   if (playing) {
     oscillator.stop();
